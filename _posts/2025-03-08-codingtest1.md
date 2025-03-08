@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "파이썬 - 물류 센터 최적 위치 찾기기"
+title: "파이썬 - 물류 센터 최적 위치 찾기"
 categories: coding
-tag: [알고리즘, 코딩테스트, 누적 합, 최적화, Python]
+tag: [알고리즘, 코딩테스트, 누적 합, Python]
 toc: true
 author_profile: false
 sidebar:
