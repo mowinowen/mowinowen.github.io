@@ -103,6 +103,23 @@ print(ans)
 6. `right_count[j]` : `j`번째 수 **이후에** 숫자들 중 `arr[j] <= arr[k]` 를 만족하는 개수
 7. `arr[i] <= arr[j]`와 `arr[j] <= arr[k]`을 **동시에** 만족해야 하므로 `left_count[j]`와 `right_count[j]`을 곱한다.
 
+풀이법 2를 간소화하면 다음과 같다.
+```python
+n = int(input())
+arr = list(map(int, input().split()))
+
+left_count = [0] * n  # left_count[j] : j 이전의 arr[i] <= arr[j]를 만족하는 개수
+for j in range(1, n):
+  left_count[j] = sum(cows[i] <= cows[j] for i in range(j))
+
+right_count = [0] * n  # right_count[j] : j 이후의 arr[j] <= arr[k]를 만족하는 개수
+for j in range(n-1):
+  right_count[j] = sum(cows[j] <= cows[k] for k in range(j+1, n))
+
+ans = sum(l*r for l, r in zip(left_count, right_count))
+print(ans)
+```
+
 ## 풀이법 비교 
 **풀이법 1**는 3중 반복문을 사용하여 <code>O(n<sup>3</sup>)</code>의 시간이 걸린다.
 
