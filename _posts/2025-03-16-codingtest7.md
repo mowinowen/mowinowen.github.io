@@ -108,10 +108,10 @@ print(ans)
 
 <div class="notice--info">
 <ol>
-  <li><code>(x1, y1)</code></li>
-  <li><code>(x2, y2)</code></li>
-  <li><code>(x3, y3)</code></li>
-  <li><code>(x4, y4)</code></li>
+  <li>(x1, y1)</li>
+  <li>(x2, y2)</li>
+  <li>(x3, y3)</li>
+  <li>(x4, y4)</li>
 </ol>
 </div>
 
@@ -119,7 +119,7 @@ print(ans)
 
 만약 건너뛸 지점을 <code>(x<sub>i</sub>, y<sub>i</sub>)</code>라고 하자. 이 지점을 건너뛰어 이동한 거리는 다음과 같다.
 <div class="notice--info">
-<code>total_dist - (|x<sub>i</sub> - x<sub>i-1</sub>| + |y<sub>i</sub> - y<sub>i-1</sub>| + |x<sub>i+1</sub> - x<sub>i</sub>| + |y<sub>i+1</sub> - y<sub>i</sub>|) + (|x<sub>i+1</sub> - x<sub>i-1</sub>| + |y<sub>i+1</sub> - y<sub>i-1</sub>|)</code>
+total_dist - (|x<sub>i</sub> - x<sub>i-1</sub>| + |y<sub>i</sub> - y<sub>i-1</sub>| + |x<sub>i+1</sub> - x<sub>i</sub>| + |y<sub>i+1</sub> - y<sub>i</sub>|) + (|x<sub>i+1</sub> - x<sub>i-1</sub>| + |y<sub>i+1</sub> - y<sub>i-1</sub>|)
 </div>
 
 ### 풀이법 2 코드 설명
@@ -127,7 +127,7 @@ print(ans)
 2. `total_list` : 모든 점을 방문할 때 총 이동 거리
 3. 반복문을 순회하면서 (`1`부터 `n-1` 인덱스까지) `dist`에 거리를 저장한다. 이 때 `dist[i-1]`은 <code>(x<sub>i-1</sub>, y<sub>i-1</sub>)</code>에서 <code>(x<sub>i</sub>, y<sub>i</sub>)</code> 간의 이동 거리이다.
 4. 동시에 모든 점에 대한 총 거리를 누적하여 `total_list`에 저장한다.
-5. 반복문을 순회하면서 (`1`부터 `n-1` 인덱스까지) `i`번째 점을 제거할 경우의 이동 거리를 계산한다. 제거하는 경우는 다음과 같다. <br>
+5. 반복문을 순회하면서 (`1`부터 `n-1` 인덱스까지) `i`번째 점을 제거할 경우의 이동 거리를 계산한다. 제거하는 경우는 다음과 같다. <br><br>
   5-1. 기존의 `dist[i-1]` (이전 점과 현재 점 사이 거리) + `dist[i]` (현재 점과 다음 점 사이 거리)를 제거 <br>
   5-2. <code>(x<sub>i-1</sub>, y<sub>i-1</sub>)</code>에서 <code>(x<sub>i+1</sub>, y<sub>i+1</sub>)</code> 로 이동하는 거리를 추가 <br>
 6. 새로운 총 거리에 대한 최솟값을 구한다.
